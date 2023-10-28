@@ -1,119 +1,59 @@
----
-## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
-
-## Generic otions
-lang: ru-RU
-toc-title: "Содержание"
-
-## Bibliography
-bibliography: bib/cite.bib
-csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
-
-## Pdf output format
-toc: true # Table of contents
-toc-depth: 2
-lof: true # List of figures
-lot: true # List of tables
-fontsize: 12pt
-linestretch: 1.5
-papersize: a4
-documentclass: scrreprt
-## I18n polyglossia
-polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
-polyglossia-otherlangs:
-  name: english
-## I18n babel
-babel-lang: russian
-babel-otherlangs: english
-## Fonts
-mainfont: PT Serif
-romanfont: PT Serif
-sansfont: PT Sans
-monofont: PT Mono
-mainfontoptions: Ligatures=TeX
-romanfontoptions: Ligatures=TeX
-sansfontoptions: Ligatures=TeX,Scale=MatchLowercase
-monofontoptions: Scale=MatchLowercase,Scale=0.9
-## Biblatex
-biblatex: true
-biblio-style: "gost-numeric"
-biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
-## Misc options
-indent: true
-header-includes:
-  - \usepackage{indentfirst}
-  - \usepackage{float} # keep figures where there are in the text
-  - \floatplacement{figure}{H} # keep figures where there are in the text
----
-
+title: "Лабораторная работа №4."
+subtitle: "Создание и процесс
+обработки программ на языке ассемблера NASM"
+author: "Новичков Максим Алексеевич"
 # Цель работы
-
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
-
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
-
+Освоение процедуры компиляции и сборки программ, написанных на ассемблере NASM.
 # Задание
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
-
-# Теоретическое введение
-
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
-
-Например, в табл. @tbl:std-dir приведено краткое описание стандартных каталогов Unix.
-
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
-
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
-
-Более подробно об Unix см. в [@gnu-doc:bash;@newham:2005:bash;@zarrelli:2017:bash;@robbins:2013:bash;@tannenbaum:arch-pc:ru;@tannenbaum:modern-os:ru].
-
 # Выполнение лабораторной работы
+Создайте каталог для работы с программами на языке ассемблера NASM 
+![Создаю каталог на языке NASP](image/Screenshot_10.png)
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. @fig:001).
+Перехожу в созданый каталог
+![Переход в созданый каталог](image/Screenshot_11.png)
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:001 width=70%}
+Создайте текстовый файл с именем hello.asm
+![Создаю текстовый файл и проверял](image/Screenshot_12.png)
 
+откройте этот файл с помощью любого текстового редактора, например, gedit
+![Открываю файл в текстовом редакторе](image/Screenshot_13.png)
+
+NASM превращает текст программы в объектный код.
+![Превращаю текст программы в код и проверяю](image/Screenshot_14.png)
+
+Чтобы получить исполняемую программу, объектный файл
+необходимо передать на обработку компоновщику
+![Передаю файл на обработку и проверяю](image/Screenshot_15.png)
+
+Запустить на выполнение созданный исполняемый файл, находящийся в текущем каталоге,
+можно, набрав в командной строке
+![Запускаю файл](image/Screenshot_16.png)
+
+#Задание для самостоятельной работы
+С помощью команды cp создайте копию файла
+hello.asm с именем lab4.asm
+![Создал копию файла](image/Screenshot_17.png)
+
+Превравщение файла в объективный код
+![Превратил файл в объективный код](image/Screenshot_19.png)
+
+Передаем компановщику файл lab4.o что бы получить исполняемую программу
+![Передаю файл](image/Screenshot_20.png)
+
+Запустить на выполнение созданный исполняемый файл, находящийся в текущем каталоге
+![Запускаю на выполнение файл](image/Screenshot_21.png)
+
+Копирую файл hello.asm и файла lab4.asm в основную ветку гит хаба
+![-](image/Screenshot_24.png)
+
+![-](image/Screenshot_25.png)
+
+Копируйте файлы  в Ваш глобальный репозиторий в ката-
+лог
+![Копирую файл и отправляю](image/Screenshot_26.png)
 # Выводы
+Сегодня я научился осваивать процедуры компиляции и сборки программ, написанных на ассемблере NASM.
 
-Здесь кратко описываются итоги проделанной работы.
 
-# Список литературы{.unnumbered}
 
-::: {#refs}
-:::
